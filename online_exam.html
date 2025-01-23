@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>অনলাইন পরীক্ষা - ExamPrep</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>ExamPrep</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" target="_blank">হোম</a></li>
+                <li><a href="login.html" target="_blank">লগইন</a></li>
+                <li><a href="results.html" target="_blank">ফলাফল</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Online Exam Section -->
+    <section class="exam-section">
+        <h2>অনলাইন পরীক্ষা</h2>
+        <form id="exam-form">
+            <!-- Question 1 -->
+            <div class="question">
+                <h3>প্রশ্ন ১: পৃথিবীর সবচেয়ে বড় মহাদেশ কোনটি?</h3>
+                <label>
+                    <input type="radio" name="q1" value="A"> এশিয়া
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="B"> আফ্রিকা
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="C"> ইউরোপ
+                </label>
+                <label>
+                    <input type="radio" name="q1" value="D"> অস্ট্রেলিয়া
+                </label>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question">
+                <h3>প্রশ্ন ২: এসএসসি পরীক্ষার কতটি বিষয়ের পরীক্ষা নেয়া হয়?</h3>
+                <label>
+                    <input type="radio" name="q2" value="A"> ৬টি
+                </label>
+                <label>
+                    <input type="radio" name="q2" value="B"> ৮টি
+                </label>
+                <label>
+                    <input type="radio" name="q2" value="C"> ১০টি
+                </label>
+                <label>
+                    <input type="radio" name="q2" value="D"> ১২টি
+                </label>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question">
+                <h3>প্রশ্ন ৩: বাংলাদেশের রাজধানী কোনটি?</h3>
+                <label>
+                    <input type="radio" name="q3" value="A"> চট্টগ্রাম
+                </label>
+                <label>
+                    <input type="radio" name="q3" value="B"> ঢাকা
+                </label>
+                <label>
+                    <input type="radio" name="q3" value="C"> সিলেট
+                </label>
+                <label>
+                    <input type="radio" name="q3" value="D"> খুলনা
+                </label>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="button" onclick="calculateResult()">পরীক্ষা জমা দিন</button>
+        </form>
+
+        <!-- Result Section -->
+        <div id="result" style="display: none;">
+            <h3>আপনার ফলাফল:</h3>
+            <p id="score"></p>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 ExamPrep. সব অধিকার সংরক্ষিত।</p>
+    </footer>
+
+    <script>
+        function calculateResult() {
+            var score = 0;
+
+            // Check question 1
+            if (document.querySelector('input[name="q1"]:checked') && document.querySelector('input[name="q1"]:checked').value === "A") {
+                score++;
+            }
+
+            // Check question 2
+            if (document.querySelector('input[name="q2"]:checked') && document.querySelector('input[name="q2"]:checked').value === "B") {
+                score++;
+            }
+
+            // Check question 3
+            if (document.querySelector('input[name="q3"]:checked') && document.querySelector('input[name="q3"]:checked').value === "B") {
+                score++;
+            }
+
+            // Show result
+            document.getElementById("exam-form").style.display = "none"; // Hide the exam form
+            document.getElementById("result").style.display = "block"; // Show result
+            document.getElementById("score").textContent = "আপনার স্কোর: " + score + " / 3";
+        }
+    </script>
+
+</body>
+</html>
